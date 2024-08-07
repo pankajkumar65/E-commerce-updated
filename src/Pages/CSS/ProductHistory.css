@@ -1,0 +1,81 @@
+/* ProductHistory.css */
+
+.product-history {
+  display: flex;
+  flex-wrap: wrap; /* Allows items to wrap onto the next line */
+  justify-content: space-between; /* Space between items */
+  margin: 0 auto; /* Center the container */
+  max-width: 1200px; /* Set a max width for better appearance */
+  padding: 20px; /* Add some padding around the container */
+}
+
+.product-card {
+  flex: 0 0 23%; /* Each card will take up approximately 23% of the width */
+  box-sizing: border-box; /* Ensures padding is included in width */
+  margin-bottom: 20px; /* Spacing between rows */
+  border: 1px solid #ddd; /* Optional: border around each product card */
+  border-radius: 8px; /* Optional: rounded corners */
+  padding: 15px; /* Padding inside each card */
+  text-align: center; /* Center text within each card */
+  transition: transform 0.2s; /* Smooth scaling effect on hover */
+}
+
+.product-card:hover {
+  transform: scale(1.02); /* Slightly scale the card on hover */
+}
+
+.product-image {
+  max-width: 100%; /* Ensure the image fits within the card */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 5px; /* Optional: rounded image corners */
+}
+
+.product-details {
+  margin-top: 10px; /* Spacing between image and text */
+}
+
+.product-name {
+  font-size: 1.2rem; /* Font size for product name */
+  font-weight: bold; /* Bold text for emphasis */
+}
+
+.product-price {
+  color: #28a745; /* Green color for price */
+  font-size: 1.1rem; /* Slightly larger font size for price */
+}
+
+/* Styling for the update form */
+.update-form {
+  margin-top: 20px; /* Space above the update form */
+  padding: 20px; /* Padding around the update form */
+  border: 1px solid #ddd; /* Border around the update form */
+  border-radius: 8px; /* Rounded corners */
+  background-color: #f9f9f9; /* Light background color */
+}
+
+.form-group {
+  margin-bottom: 15px; /* Spacing between form groups */
+}
+
+input[type="text"],
+input[type="url"],
+input[type="number"] {
+  width: 100%; /* Full width for input fields */
+  padding: 8px; /* Padding inside input fields */
+  border: 1px solid #ccc; /* Border color */
+  border-radius: 4px; /* Rounded corners */
+}
+
+.btn {
+  background-color: #007bff; /* Bootstrap primary color */
+  color: white; /* Text color */
+  padding: 10px 15px; /* Padding around the button */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s; /* Smooth background color change */
+}
+
+.btn:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}

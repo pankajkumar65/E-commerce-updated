@@ -1,0 +1,129 @@
+/* General styles */
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+* {
+    margin: 0;
+    padding: 0; /* Add padding reset */
+    box-sizing: border-box; /* Add box-sizing for consistent sizing */
+    font-family: 'Poppins', sans-serif;
+}
+
+/* navbar1 styles */
+.navbar1 {
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Ensure it stays on top */
+}
+
+.navbar1 {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5vw;
+    box-shadow: 0px 1px 3px -2px black;
+    background-color: #f3f3f3;
+    align-items: center;
+}
+
+/* Logo styles */
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-logo p {
+    color: black;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+/* Dropdown styles */
+.nav-dropdown {
+    display: none;
+}
+
+.relative.group:hover .nav-dropdown,
+.relative.group:focus-within .nav-dropdown {
+    display: block; /* Show dropdown on hover or focus */
+}
+
+/* Message styles */
+.message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 500;
+    color: rgb(255, 255, 255);
+    margin: 4px 0 -37px 0; /* Adjust margin for better spacing */
+}
+
+/* Responsive styles */
+@media(max-width: 1280px) {
+    .navbar1 {
+        padding: 12px 50px;
+    }
+
+    .nav-logo p {
+        font-size: 25px;
+    }
+}
+
+@media(max-width: 1024px) {
+    .nav-menu {
+        margin-left: 90px;
+    }
+}
+
+@media(max-width: 800px) {
+    .navbar1 {
+        flex-direction: column; /* Stack items vertically */
+        padding: 10px; /* Adjust padding */
+    }
+
+    .nav-menu {
+        display: none; /* Hide menu by default */
+        flex-direction: column; /* Stack menu items */
+        position: absolute; /* Position absolute for dropdown */
+        background-color: white;
+        width: 100%; /* Full width */
+        top: 70px; /* Position below navbar1 */
+        animation-duration: 500ms;
+    }
+
+    .nav-menu-visible {
+        display: flex; /* Show menu when visible */
+    }
+
+    .nav-dropdown {
+        display: block; /* Make dropdown visible */
+        transform: rotate(0deg);
+        transition: transform 0.5s; /* Smooth transition */
+    }
+
+    .nav-dropdown.open {
+        transform: rotate(90deg); /* Rotate dropdown icon */
+    }
+
+    .nav-login-cart {
+        transform: scale(0.8); /* Adjust size */
+    }
+
+    .nav-logo {
+        transform: scale(0.8); /* Adjust logo size */
+    }
+}
+
+@media(max-width: 500px) {
+    .navbar1 {
+        padding: 12px 0px;
+        gap: 0; /* Reduce gap */
+    }
+
+    .nav-logo {
+        transform: scale(0.8); /* Further reduce logo size */
+    }
+
+    .nav-login-cart {
+        transform: scale(0.8); /* Further reduce login cart size */
+    }
+}

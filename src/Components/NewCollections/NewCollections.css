@@ -1,0 +1,67 @@
+.new-collections {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 7vw;
+}
+
+.new-collections h1 {
+    color: #171717;
+    font-size: 2.6vw; /* Responsive font size */
+    font-weight: 600;
+    text-align: center; /* Center align title */
+}
+
+.new-collections hr {
+    width: 200px;
+    height: 6px;
+    border-radius: 10px;
+    background: #252525;
+}
+
+.collections {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Four columns for larger screens */
+    margin-top: 50px;
+    gap: 30px;
+}
+
+/* Responsive Design Breakpoints */
+@media (max-width: 1200px) {
+    .new-collections h1 {
+        font-size: 2.4vw; /* Slightly smaller on medium devices */
+    }
+
+    .collections {
+        grid-template-columns: repeat(3, 1fr); /* Three columns for medium screens */
+    }
+}
+
+@media (max-width: 800px) {
+    .new-collections h1 {
+        font-size: 5vw; /* Responsive font size */
+    }
+
+    .new-collections hr {
+        width: 150px; /* Smaller hr on smaller devices */
+    }
+
+    .collections {
+        grid-template-columns: repeat(2, 1fr); /* Two columns for small screens */
+    }
+}
+
+@media (max-width: 500px) {
+    .new-collections h1 {
+        font-size: 6vw; /* Even smaller font for mobile */
+    }
+
+    .new-collections hr {
+        width: 100px; /* Smaller hr for mobile */
+    }
+
+    .collections {
+        grid-template-columns: 1fr; /* Single column for very small screens */
+    }
+}

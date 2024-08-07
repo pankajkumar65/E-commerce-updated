@@ -1,0 +1,92 @@
+.popular {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    height: auto; /* Changed to auto to accommodate content */
+    padding: 20px; /* Added padding for spacing */
+}
+
+.popular h1 {
+    color: #171717;
+    font-size: 2.8vw; /* Responsive font size */
+    font-weight: 600;
+    text-align: center; /* Centered text */
+}
+
+.popular hr {
+    width: 200px; /* Default width */
+    height: 6px; /* Default height */
+    border-radius: 10px;
+    background: #252525;
+}
+
+.popular-item {
+    margin-top: 2.9vw; /* Top margin */
+    display: flex; /* Using flexbox to arrange items in a row */
+    flex-wrap: wrap; /* Allow items to wrap into the next line if needed */
+    justify-content: center; /* Center items */
+    gap: 1.5vw; /* Gap between items */
+}
+
+/* Responsive Design Breakpoints */
+@media(max-width: 1280px) {
+    .popular {
+        height: auto; /* Adjust height */
+    }
+    .popular h1 {
+        font-size: 40px; /* Font size for medium screens */
+    }
+    .popular hr {
+        width: 160px; /* Adjust hr width */
+        height: 5px; /* Adjust hr height */
+    }
+    .popular-item {
+        gap: 20px; /* Adjust gap */
+        margin-top: 30px; /* Adjust top margin */
+    }
+}
+
+@media(max-width: 1024px) {
+    .popular h1 {
+        font-size: 30px; /* Font size for smaller screens */
+    }
+    .popular hr {
+        width: 120px; /* Adjust hr width */
+        height: 4px; /* Adjust hr height */
+    }
+    .popular-item {
+        gap: 15px; /* Adjust gap */
+        margin-top: 20px; /* Adjust top margin */
+    }
+}
+
+@media(max-width: 800px) {
+    .popular {
+        padding: 10px; /* Reduce padding */
+    }
+    .popular h1 {
+        font-size: 24px; /* Font size for smaller screens */
+    }
+    .popular hr {
+        width: 100px; /* Adjust hr width */
+        height: 3px; /* Adjust hr height */
+    }
+    .popular-item {
+        gap: 10px; /* Adjust gap */
+    }
+}
+
+@media(max-width: 500px) {
+    .popular h1 {
+        font-size: 20px; /* Further reduce font size */
+    }
+    .popular hr {
+        width: 80px; /* Adjust hr width */
+        height: 2px; /* Adjust hr height */
+    }
+    .popular-item {
+        flex-direction: column; /* Stack items vertically on very small screens */
+        align-items: center; /* Center items */
+    }
+}

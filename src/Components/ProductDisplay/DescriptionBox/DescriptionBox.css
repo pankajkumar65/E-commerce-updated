@@ -1,0 +1,86 @@
+.descriptionbox {
+    margin: 120px auto; /* Center the component horizontally */
+    max-width: 1200px; /* Maximum width for larger screens */
+    padding: 0 20px; /* Add padding for smaller screens */
+}
+
+.description-box-navigator {
+    display: flex;
+    justify-content: center; /* Center the navigation items */
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+}
+
+.descriptionbox-nav-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 600;
+    width: 171px; /* Fixed width for larger screens */
+    height: 70px;
+    border: 1px solid #d0d0d0;
+    cursor: pointer; /* Change cursor to pointer */
+    transition: background 0.3s, color 0.3s; /* Smooth transition for hover effect */
+}
+
+.descriptionbox-nav-box:hover {
+    background: #f0f0f0; /* Change background on hover */
+}
+
+.descriptionbox-nav-box.fade {
+    background: #fbfbfb;
+    color: #555;
+}
+
+.descriptionbox-description {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    border: 1px solid #d0d0d0;
+    padding: 48px;
+    padding-bottom: 70px;
+}
+
+/* Media Queries for Responsiveness */
+
+@media (max-width: 1024px) {
+    .descriptionbox {
+        margin: 80px 20px; /* Reduced margin for medium screens */
+    }
+
+    .descriptionbox-nav-box {
+        width: 140px; /* Smaller width for navigation items */
+        height: 60px; /* Smaller height for navigation items */
+    }
+
+    .descriptionbox-nav-box:hover {
+        background: #e0e0e0; /* Change background on hover for smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .descriptionbox-nav-box {
+        width: 100%; /* Full width for navigation items */
+        height: 50px; /* Smaller height for navigation items */
+        margin: 5px 0; /* Add margin between items */
+    }
+
+    .descriptionbox-description {
+        padding: 30px; /* Reduced padding for description box */
+    }
+}
+
+@media (max-width: 480px) {
+    .descriptionbox {
+        margin: 40px 10px; /* Further reduced margin for small screens */
+    }
+
+    .descriptionbox-nav-box {
+        font-size: 14px; /* Smaller font size */
+        height: 45px; /* Adjusted height */
+    }
+
+    .descriptionbox-description {
+        padding: 20px; /* Further reduced padding for description box */
+    }
+}

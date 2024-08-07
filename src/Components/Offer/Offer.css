@@ -1,0 +1,140 @@
+.offers {
+    width: 75%;
+    height: 60vh; /* Default height */
+    display: flex;
+    margin: auto;
+    padding: 0px 3.5vw;
+    margin-bottom: 7vw;
+    background: linear-gradient(180deg, #fde1ff 0%, #e1ffea22 60%);
+}
+
+.offer-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.offer-left h1 {
+    color: #171717;
+    font-size: 80px; /* Default font size */
+    font-weight: 600;
+}
+
+.offer-left p {
+    color: #171717;
+    font-size: 22px; /* Default font size */
+    font-weight: 600;
+}
+
+.offer-left button {
+    width: 282px; /* Default width */
+    height: 70px; /* Default height */
+    border-radius: 35px;
+    background: #ff4141;
+    border: none; 
+    color: white;
+    font-size: 22px; /* Default font size */
+    font-weight: 500;
+    margin-top: 30px;
+    cursor: pointer;
+}
+
+.offer-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-top: 50px; /* Padding for alignment */
+}
+
+/* Responsive Design Breakpoints */
+@media(max-width: 1280px) {
+    .offers {
+        padding: 0px 80px; /* Padding adjustments */
+        margin-bottom: 50px; /* Bottom margin adjustment */
+    }
+
+    .offer-left h1 {
+        font-size: 40px; /* Smaller font for medium devices */
+    }
+
+    .offer-left p {
+        font-size: 18px; /* Smaller paragraph font */
+    }
+
+    .offer-right img {
+        width: 300px; /* Adjust image size */
+    }
+
+    .offer-left button {
+        width: 160px; /* Smaller button size */
+        height: 40px; /* Smaller button height */
+        font-size: 16px; /* Smaller button font */
+    }
+
+    .offer-right {
+        padding-top: 0px; /* Reset padding */
+    }
+}
+
+@media(max-width: 800px) {
+    .offers {
+        padding: 0px 20px; /* More padding for small screens */
+        margin-bottom: 0px; /* Reset margin */
+        height: auto; /* Allow height to adjust based on content */
+        flex-direction: column; /* Stack vertically */
+    }
+
+    .offer-left {
+        align-items: center; /* Center alignment for smaller screens */
+        text-align: center; /* Center text alignment */
+        padding: 20px; /* Add padding for aesthetics */
+    }
+
+    .offer-left h1 {
+        font-size: 26px; /* Smaller font for mobile */
+    }
+
+    .offer-left p {
+        font-size: 14px; /* Smaller paragraph font */
+        width: 100%; /* Allow full width */
+    }
+
+    .offer-right img {
+        width: 100%; /* Make the image responsive */
+        max-width: 300px; /* Max width to maintain aspect ratio */
+    }
+
+    .offer-left button {
+        width: 150px; /* Adjust button width */
+        height: 45px; /* Adjust button height */
+        font-size: 16px; /* Smaller font for button */
+    }
+
+    .offer-right {
+        margin: 0; /* Remove margin */
+        height: auto; /* Auto height */
+        padding-top: 20px; /* Add some padding for spacing */
+    }
+}
+
+@media(max-width: 500px) {
+    .offer-left h1 {
+        font-size: 22px; /* Further reduce font size */
+    }
+
+    .offer-left p {
+        font-size: 12px; /* Reduce paragraph font size */
+    }
+
+    .offer-left button {
+        width: 120px; /* Smaller button width */
+        height: 35px; /* Smaller button height */
+        font-size: 14px; /* Smaller font for button */
+    }
+
+    .offer-right img {
+        max-width: 250px; /* Further reduce max width */
+    }
+}

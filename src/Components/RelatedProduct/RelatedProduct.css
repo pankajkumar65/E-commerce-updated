@@ -1,0 +1,63 @@
+.reletedproducts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    height: auto; /* Change to auto to fit content */
+    margin-bottom: 7vw; /* Margin for spacing below */
+}
+
+.reletedproducts h1 {
+    color: #171717;
+    font-size: 2.5vw; /* Responsive font size */
+    font-weight: 600;
+    text-align: center; /* Center align for better appearance */
+}
+
+.reletedproducts hr {
+    width: 200px;
+    height: 6px;
+    border-radius: 10px;
+    background: #252525;
+}
+
+.relatedproducts-item {
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping of items */
+    justify-content: center; /* Center align items */
+    gap: 30px;
+}
+
+/* Media Queries for Responsiveness */
+
+@media (max-width: 1280px) {
+    .reletedproducts h1 {
+        font-size: 40px; /* Adjusted font size for medium screens */
+    }
+}
+
+@media (max-width: 800px) {
+    .reletedproducts h1 {
+        font-size: 30px; /* Further adjusted font size for smaller screens */
+    }
+
+    .relatedproducts-item {
+        gap: 20px; /* Adjust gap between items */
+    }
+}
+
+@media (max-width: 500px) {
+    .reletedproducts {
+        padding: 0 20px; /* Add padding for mobile devices */
+    }
+
+    .reletedproducts h1 {
+        font-size: 25px; /* Smaller font size for mobile */
+    }
+
+    .relatedproducts-item {
+        gap: 15px; /* Further reduced gap for small screens */
+        justify-content: center; /* Center align items */
+    }
+}

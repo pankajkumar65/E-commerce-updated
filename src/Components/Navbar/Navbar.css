@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.Navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5vw;
+    box-shadow: 0px 1px 3px -2px black;
+    background-color: #f3f3f3;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Reduced gap */
+}
+
+.nav-logo p {
+    color: black;
+    font-size: 28px; /* Default size */
+    font-weight: 600;
+}
+
+.nav-menu-container {
+    position: relative;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 3.5vw;
+    list-style: none;
+    color: #626262;
+    font-size: 1vw;
+    font-weight: 500;
+}
+
+.nav-menu li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    cursor: pointer;
+}
+
+.nav-menu hr {
+    border: none;
+    width: 80%;
+    height: 3px;
+    border-radius: 10px;
+    background: #FF4141;
+}
+
+.nav-login-cart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 45px;
+}
+
+.nav-login-cart button {
+    width: 7.2vw;
+    height: 7vh;
+    outline: none;
+    border: 1px solid #7a7a7a;
+    border-radius: 2vw;
+    color: #515151;
+    font-size: 1.1vw;
+    font-weight: 500;
+    background: white;
+    cursor: pointer;
+}
+
+.nav-login-cart button:active {
+    background: #f3f3f3;
+}
+
+.nav-cart-count {
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -35px;
+    margin-left: -55px;
+    border-radius: 11px;
+    font-size: 14px;
+    background: red;
+    color: white;
+}
+
+.message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 500;
+    color: rgb(255, 255, 255);
+    margin-top: 4px;
+}
+
+.message p {
+    background: #e51111;
+    padding: 7px 30px;
+    border: none;
+    outline: none;
+    border-radius: 18px;
+}
+
+.nav-dropdown {
+    display: none;
+}
+
+@media(max-width: 1280px) {
+    .navbar {
+        padding: 12px 50px;
+    }
+    .nav-logo {
+        width: 40px;
+    }
+    .nav-logo p {
+        font-size: 25px; /* Slightly smaller for medium screens */
+    }
+    .nav-menu {
+        gap: 30px;
+        font-size: 16px;
+    }
+    .nav-login-cart {
+        gap: 30px;
+    }
+    .nav-login-cart button {
+        width: 120px;
+        height: 50px;
+        font-size: 16px;
+    }
+    .nav-cart-count {
+        margin-left: -40px;
+        font-size: 12px;
+    }
+}
+
+@media(max-width: 800px) {
+    .nav-menu {
+        display: none; /* Hide menu by default */
+        height: 70px;
+        width: 100%;
+        position: absolute;
+        background-color: white;
+        justify-content: center;
+        top: 70px;
+        animation-duration: 500ms;
+        flex-direction: column;
+    }
+    .nav-menu-visible {
+        display: flex; /* Show menu when visible */
+    }
+    .nav-dropdown {
+        display: block; /* Show dropdown for mobile */
+        cursor: pointer;
+    }
+    .nav-login-cart {
+        transform: scale(0.7);
+    }
+    .nav-logo {
+        transform: scale(0.8);
+    }
+    .nav-dropdown{
+        padding-left: 10vw;
+    }
+    .navbar {
+        display: flex;
+        padding: 10px;
+    }
+}
+
+@media(max-width: 500px) {
+    .navbar {
+        padding: 12px 0px;
+        gap: 0;
+    }
+    .nav-logo {
+        transform: scale(0.8);
+    }
+    .nav-logo p {
+        font-size: 16px; /* Reduced size for smaller screens */
+    }
+    .nav-menu {
+        gap: 10px; /* Adjust gap for mobile */
+    }
+    .nav-login-cart {
+        transform: scale(0.8);
+    }
+    .userlogo {
+        width: 30px; /* Make user logo responsive */
+        height: 30px; /* Adjust height for user logo */
+        margin-left: 10px; /* Adjust margin for better spacing */
+    }
+    .nav-dropdown{
+        margin-left: 10vw;
+    }
+    .nav-login-cart button {
+        width: 100px; /* Responsive width for logout button */
+        height: 40px; /* Responsive height for logout button */
+        font-size: 14px; /* Responsive font size */
+    }
+}
+
+@media(max-width: 450px) {
+    .nav-dropdown{
+        margin-left: 18vw;
+    }
+}
