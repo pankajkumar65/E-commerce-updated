@@ -83,8 +83,7 @@ const Navbar = ({ onSendmsg }) => {
           <div className="nav-cart-count">{getTotalCartItems()}</div>
         </div>
       </div>
-      {logoutMessageVisible && <div className='w-20 h-20'><p>Logout successfully</p></div>} {/* Conditional rendering for logout message */}
-
+      {logoutMessageVisible && <div className='w-20 h-20'>Logout successfully</div>} {/* Conditional rendering for logout message */}
       <div className='message'>
         {message && <p>{message}</p>}
         

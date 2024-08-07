@@ -8,6 +8,16 @@ const NavbarBL = () => {
 
     const [menu, setmenu] = useState("shop");
     const { message, getTotalCartItems } = useContext(ShopContext);
+    const [logoutMessageVisible, setLogoutMessageVisible] = useState(false); // State for logout message
+    // const handleLogout = () => {
+    //     // Optionally clear client state or perform other logout actions
+    //     setClient(null);
+    //     sendMessageToParent(); // Call the parent function if needed
+    //     setLogoutMessageVisible(true); // Show logout message
+    //     setTimeout(() => {
+    //       setLogoutMessageVisible(false); // Hide message after 3 seconds
+    //     }, 3000);
+    //   };
     return (
         <div className='Navbar'>
             <div className='navbar1 flex justify-between px-24'>
