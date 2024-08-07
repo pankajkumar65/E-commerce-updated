@@ -8,18 +8,29 @@ import { ShopContext } from '../../Context/ShopContext';
 import { useClient } from '../../Context/ClientContext';
 
 const Navbar = ({ onSendmsg }) => {
+  const [menu, setMenu] = useState("shop");
+  const [dropdownVisible, setDropdownVisible] = useState(false);
+  const [logoutMessageVisible, setLogoutMessageVisible] = useState(false); // State for logout message
+  const { client, setClient } = useClient();
+  const { message, getTotalCartItems } = useContext(ShopContext);
+
   const sendMessageToParent = () => {
     const Navshow = "first";
     onSendmsg(Navshow);
   };
 
-  const [menu, setMenu] = useState("shop");
-  const [dropdownVisible, setDropdownVisible] = useState(false);
-  const { client, setClient } = useClient();
-  const { message, getTotalCartItems } = useContext(ShopContext);
-
   const toggleDropdown = () => {
     setDropdownVisible(!dropdownVisible);
+  };
+
+  const handleLogout = () => {
+    // Optionally clear client state or perform other logout actions
+    setClient(null);
+    sendMessageToParent(); // Call the parent function if needed
+    setLogoutMessageVisible(true); // Show logout message
+    setTimeout(() => {
+      setLogoutMessageVisible(false); // Hide message after 3 seconds
+    }, 3000);
   };
 
   return (
@@ -57,19 +68,26 @@ const Navbar = ({ onSendmsg }) => {
           </ul>
         </div>
         <div className='nav-login-cart'>
-          {/* user login and logout  */}
+          {/* User login and logout */}
           <div>
             <img className="userlogo" src={userLogo} alt="" />
             <p>{client}</p>
           </div>
 
-          <Link to="/"><button onClick={sendMessageToParent}>Logout</button></Link>
-          <Link to="/cart"><img src={cart_icon} alt="" /></Link>
+          <Link to="/" onClick={handleLogout}>
+            <button>Logout</button>
+          </Link>
+          <Link to="/cart">
+            <img src={cart_icon} alt="" />
+          </Link>
           <div className="nav-cart-count">{getTotalCartItems()}</div>
         </div>
       </div>
+      {logoutMessageVisible && <div className='w-20 h-20'><p>Logout successfully</p></div>} {/* Conditional rendering for logout message */}
+
       <div className='message'>
         {message && <p>{message}</p>}
+        
       </div>
     </div>
   );
