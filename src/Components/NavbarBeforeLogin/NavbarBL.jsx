@@ -36,7 +36,7 @@ const NavbarBL = () => {
                         </svg>
                     </button>
                     <div class="absolute right-0 left-1 hidden w-48 mt-0 bg-white border border-gray-200 rounded shadow-lg group-hover:block">
-                        <a href="/login" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 text-xl">Customer Login</a>
+                        <a href="/" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 text-xl">Customer Login</a>
                         <a href="/admin" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 text-xl">Admin Login</a>
                     </div>
                 </div>

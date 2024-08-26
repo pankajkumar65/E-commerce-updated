@@ -1,12 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './CSS/Loginsignup.css';
+import { Link } from 'react-router-dom';
 
-import userLogo from './user_logo.png';
-import { useAdmin } from '../Context/AdminContext';
-import ProductHistory from '../Components/ProductDisplay/ProductHistory';
-
-const AdminRegis = () => {
-  // State to manage form data
+const AdminRegis = ({ onSendmsg }) => {
   const [formData, setFormData] = useState({
     name: '',
     description: '',
@@ -16,27 +12,27 @@ const AdminRegis = () => {
     productStock: '',
   });
 
-  // Handle input change
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    if (type === 'radio') {
-      setFormData({ ...formData, [name]: value });
-    } else {
-      setFormData({ ...formData, [name]: value });
-    }
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+
+  const sendMessageToParent = () => {
+    const Navshow = "third";
+    onSendmsg(Navshow);
+    console.log("third");
   };
 
-  // Handle form submission
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validate input (basic example, add more as needed)
     if (!formData.name || !formData.description || !formData.imageUrl || !formData.price || !formData.category || !formData.productStock) {
       alert('Please fill in all fields');
       return;
     }
 
-    // Convert price and productStock to appropriate types
     const productData = {
       ...formData,
       price: parseFloat(formData.price),
@@ -53,8 +49,7 @@ const AdminRegis = () => {
       });
 
       if (response.ok) {
-        alert('Product added successfully');
-        // Clear form data if needed
+        setShowSuccessMessage(true);
         setFormData({
           name: '',
           description: '',
@@ -63,6 +58,9 @@ const AdminRegis = () => {
           category: '',
           productStock: '',
         });
+        setTimeout(() => {
+          setShowSuccessMessage(false);
+        }, 3000);
       } else {
         const errorData = await response.json();
         alert(`Error: ${errorData.message || 'An error occurred'}`);
@@ -87,26 +85,21 @@ const AdminRegis = () => {
 
       if (response.ok) {
         alert('Product deleted successfully');
-        setDeleteProductId(''); // Clear input field
-        fetchProducts(); // Refresh product list
+        setDeleteProductId('');
       } else {
         alert('Failed to delete product');
       }
     } catch (error) {
-      // alert('Network error');
+      alert('Network error');
     }
   };
 
-  const [token, setToken] = useState(sessionStorage.getItem('token'));
-
-  const { admin, setAdmin } = useAdmin();
-
   return (
     <>
-      <div>
-        {/* <img src={userLogo} alt="" /> */}
-      </div>
-      <div className='loginsignup' style={{ height: "130vh" }}>
+      {showSuccessMessage && (
+        <div className="success-message">Product added successfully!</div>
+      )}
+      <div className='loginsignup'>
         <div className="loginsignup-container">
           <h1>Add Products </h1>
           <form onSubmit={handleSubmit}>
@@ -116,37 +109,37 @@ const AdminRegis = () => {
                 <div className='flex gap-8'>
                   <label className="flex items-center">
                     <input
-                      style={{ width: "1.2vw", height: "1.2vw", paddingLeft: "0", fontSize: "0" }}
+                      style={{ width: "1.2vw", height: "1.2vw" }}
                       type="radio"
                       name="category"
                       value="Men"
                       checked={formData.category === 'Men'}
                       onChange={handleChange}
-                      className="form-radio h-1 w-1 text-blue-600 focus:ring-blue-600"
+                      className="form-radio"
                     />
                     <span className="ml-1 text-gray-700">Men</span>
                   </label>
                   <label className="flex items-center">
                     <input
-                      style={{ width: "1.2vw", height: "1.2vw", paddingLeft: "0", fontSize: "0" }}
+                      style={{ width: "1.2vw", height: "1.2vw" }}
                       type="radio"
                       name="category"
                       value="Women"
                       checked={formData.category === 'Women'}
                       onChange={handleChange}
-                      className="form-radio h-1 w-1 text-blue-600 focus:ring-blue-600"
+                      className="form-radio"
                     />
                     <span className="ml-1 text-gray-700">Women</span>
                   </label>
                   <label className="flex items-center">
                     <input
-                      style={{ width: "1.2vw", height: "1.2vw", paddingLeft: "0", fontSize: "0" }}
+                      style={{ width: "1.2vw", height: "1.2vw" }}
                       type="radio"
                       name="category"
                       value="Kids"
                       checked={formData.category === 'Kids'}
                       onChange={handleChange}
-                      className="form-radio h-1 w-1 text-blue-600 focus:ring-blue-600"
+                      className="form-radio"
                       required
                     />
                     <span className="ml-1 text-gray-700">Kids</span>
@@ -163,12 +156,12 @@ const AdminRegis = () => {
                 required
               />
               <textarea style={{border: "1px solid #c9c9c9"}}
-                className="inp border-2 "
+                className="inp"
                 name="description"
                 placeholder='Description'
                 value={formData.description}
                 onChange={handleChange}
-                rows="4" // Adjust rows as needed
+                rows="4"
                 required
               />
               <input
@@ -203,7 +196,9 @@ const AdminRegis = () => {
             <button type="submit">ADD</button>
           </form>
           <div>
-            <button className='w-6 h-4 border-2  border-black rounded-full'><a href='/producthistory'>See Listed Products</a></button>
+            <Link to="/producthistory">
+              <button onClick={sendMessageToParent} className='w-6 h-4 border-2 border-black rounded-full'>See Listed Products</button>
+            </Link>
           </div>
         </div>
       </div>

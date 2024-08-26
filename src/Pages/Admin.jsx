@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
 import './CSS/Loginsignup.css';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useAdmin } from '../Context/AdminContext';
 
 const Admin = ({ onSendmsg }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { admin, setAdmin } = useAdmin();
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  const { setAdmin } = useAdmin();
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     const loginData = { email, password };
-
 
     try {
       const response = await fetch('http://localhost:8080/admin/login', {
@@ -25,20 +25,24 @@ const Admin = ({ onSendmsg }) => {
       });
 
       if (!response.ok) {
-
-        alert("Login failed. Please check your credentials and try again.")
+        alert("Login failed. Please check your credentials and try again.");
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
       const data = await response.json();
 
       if (data.success) {
-        // sessionStorage.setItem('token', data);
-        setAdmin(email)
-        const Navshow = "third"
-        onSendmsg(Navshow)
-      
-        navigate('/adminregis');
+        setAdmin(email);
+        const Navshow = "third";
+        onSendmsg(Navshow);
+
+        // Show success message
+        setShowSuccessMessage(true);
+
+        // Navigate after a delay to allow the user to see the success message
+        setTimeout(() => {
+          navigate('/adminregis');
+        }, 2000);
       } else {
         alert('Login failed. Please check your credentials and try again.');
       }
@@ -71,6 +75,12 @@ const Admin = ({ onSendmsg }) => {
           <button onClick={handleSubmit}>Login</button>
         </div>
       </div>
+      
+      {showSuccessMessage && (
+        <div className="success-message">
+          Login Successfully!
+        </div>
+      )}
     </div>
   );
 };

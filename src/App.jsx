@@ -25,24 +25,30 @@ function App() {
   let flag1 = "first";
   let flag2 = "second";
   let flag3 = "third";
+  
   const [Navshow, setNavshow] = useState("first");
+  const [showLogoutMessage, setShowLogoutMessage] = useState(false); // New state for logout message
+
   const handleShow = (childData) => {
     setNavshow(childData);
+    if (childData === "first") {
+      setShowLogoutMessage(true); // Show logout message when navigating to the login page
+    }
   };
-  
+
   const navbar =
-      Navshow === flag1 ? (
-        <NavbarBL onSendmsg={handleShow} />
-      ) : Navshow === flag2 ? (
-        <Navbar onSendmsg={handleShow} />
-      ) : Navshow === flag3 ? (
-        <NavbarAdmin onSendmsg={handleShow} />
-      ) : null;
+    Navshow === flag1 ? (
+      <NavbarBL onSendmsg={handleShow} />
+    ) : Navshow === flag2 ? (
+      <Navbar onSendmsg={handleShow} />
+    ) : Navshow === flag3 ? (
+      <NavbarAdmin onSendmsg={handleShow} />
+    ) : null;
+
   return (
-    <ShopProvider> {/* Wrap your app with ShopProvider */}
+    <ShopProvider>
       <BrowserRouter>
-      {navbar}
-        {/* {Navshow ? <Navbar onSendmsg={handleShow} /> : <NavbarBL />} */}
+        {navbar}
         <Routes>
           <Route path='/shop' element={<Shop />}></Route>
           <Route path='/mens' element={<ShopCategory banner={men_banner} category="Men" />}></Route>
@@ -52,17 +58,17 @@ function App() {
             <Route path=':productId' element={<Product />} />
           </Route>
           <Route path='/cart' element={<Cart />} />
-          <Route path='/' element={<LoginSignup />} />
-          <Route path='/login' element={<Login onSendmsg={handleShow} />} />
+          <Route path='/Signup' element={<LoginSignup />} />
+          <Route path='/' element={<Login onSendmsg={handleShow} showLogoutMessage={showLogoutMessage} />} />
           <Route path='/producthistory' element={<ProductHistory />} />
           <Route path='/admin' element={<Admin onSendmsg={handleShow} />} />
           <Route path='/adminsignup' element={<Adminsignup />} />
-          <Route path='/adminregis' element={<AdminRegis />} />
+          <Route path='/adminregis' element={<AdminRegis onSendmsg={handleShow} />} />
         </Routes>
       </BrowserRouter>
       <Footer />
     </ShopProvider>
-  )
+  );
 }
 
 export default App;
